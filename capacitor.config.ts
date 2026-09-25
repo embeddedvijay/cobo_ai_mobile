@@ -4,7 +4,10 @@ const config: CapacitorConfig = {
   appId: 'com.coboai.mobile',
   appName: 'Cobo AI',
   webDir: 'dist',
-  server: { androidScheme: 'https' }
+  server: {
+    androidScheme: 'http',
+    cleartext: true
+  }
 };
 
 export default config;
