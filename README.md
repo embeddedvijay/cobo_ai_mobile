@@ -217,3 +217,19 @@ Monthly rental state will support active/expired status. Expiry must pause safel
 ## Important
 
 The existing desktop Electron app and desktop workflow are not part of this mobile repository and must not be changed just to make the Android client work.
+
+
+## Local backend adapter status
+
+For local Android testing, `embeddedvijay/cobo_ai` now exposes an additive `/mobile/*` adapter from the existing FastAPI process. It reuses the final desktop dashboard, transactions, Hisab, results and Run Final services instead of duplicating business logic.
+
+Local-test safeguards:
+
+- Desktop `/desktop/*` routes are unchanged.
+- Android resolves the currently configured runtime client on the server; it does not send a trusted Mongo/client selector.
+- `GET /mobile/config` is read-only in local test mode.
+- `PUT /mobile/config` is intentionally blocked so Android cannot overwrite the desktop-generated runtime configuration.
+- Android Stop Service is intentionally blocked while the process is desktop-owned; the backend must never kill/spawn a duplicate copy of itself.
+- Cloud deployment will replace the local client resolver with authenticated token -> client mapping and tenant-owned runtime controls.
+
+Current local test endpoints available from the existing port 8015 include dashboard, transactions, Hisab, results, final options, Run Final, config read and service status.
