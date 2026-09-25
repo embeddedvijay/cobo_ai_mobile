@@ -22,6 +22,7 @@ export const api = {
   me: token => request('/mobile/me', { token }),
   dashboard: (token, date) => request(`/mobile/dashboard?date=${encodeURIComponent(date)}`, { token }),
   config: token => request('/mobile/config', { token }),
+  results: (token, date) => request(`/mobile/results?date=${encodeURIComponent(date)}`, { token }),
   saveConfig: (token, config) => request('/mobile/config', { token, method: 'PUT', body: config }),
   transactions: (token, date) => request(`/mobile/transactions?date=${encodeURIComponent(date)}`, { token }),
   hisab: (token, date) => request(`/mobile/hisab?date=${encodeURIComponent(date)}`, { token }),
