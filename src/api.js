@@ -21,6 +21,7 @@ export const api = {
   login: credentials => request('/mobile/auth/login', { method: 'POST', body: credentials }),
   me: token => request('/mobile/me', { token }),
   dashboard: (token, date) => request(`/mobile/dashboard?date=${encodeURIComponent(date)}`, { token }),
+  liveDetail: (token, date, contact, market) => request(`/mobile/live-detail?date=${encodeURIComponent(date)}&contact=${encodeURIComponent(contact)}&market=${encodeURIComponent(market)}`, { token }),
   config: token => request('/mobile/config', { token }),
   groups: token => request('/mobile/groups', { token }),
   results: (token, date) => request(`/mobile/results?date=${encodeURIComponent(date)}`, { token }),
