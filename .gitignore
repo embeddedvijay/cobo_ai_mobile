@@ -1,5 +1,5 @@
 node_modules/
 dist/
-android/
 .env
 .DS_Store
+android/local.properties
