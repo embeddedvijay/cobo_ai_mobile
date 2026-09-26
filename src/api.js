@@ -34,5 +34,8 @@ export const api = {
   finalOptions: token => request('/mobile/final-options', { token }),
   runFinal: (token, output_group) => request('/mobile/run-final', { token, method: 'POST', body: { output_group } }),
   serviceStatus: token => request('/mobile/service/status', { token }),
-  serviceAction: (token, action) => request(`/mobile/service/${action}`, { token, method: 'POST' })
+  serviceAction: (token, action) => request(`/mobile/service/${action}`, { token, method: 'POST' }),
+  whatsappStatus: token => request('/mobile/whatsapp/status', { token }),
+  whatsappConnect: token => request('/mobile/whatsapp/connect', { token, method: 'POST' }),
+  whatsappLogout: token => request('/mobile/whatsapp/logout', { token, method: 'POST' })
 };
